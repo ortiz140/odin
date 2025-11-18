@@ -1,0 +1,138 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+.form-box {
+    padding: 2rem;
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.1);
+    width: 100%;
+    max-width: 500px;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background-color: steelblue;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.error-message {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.loading-message {
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.loading-spinner {
+    width: 2rem;
+    height: 2rem;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid steelblue;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.password-container {
+    position: relative;
+}
+
+.password-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-wrapper input {
+    width: 100%;
+    padding-right: 40px; /* Ensure space for the eye icon */
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 6px;
+    cursor: pointer;
+    color: #777777;
+    font-size: 1.2rem;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+.level-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+    align-items: center;
+}
+  
+.level-inputs input {
+    max-width: 100px;
+}
+
+.form-box {
+    min-height: 400px; /* Increase the height of the form box */
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem; /* Add space between the form elements */
+    padding: 20px;
+}
+
+
+.info-icon {
+    font-size: 0.65rem; /* Superscript size */
+    color: #555;
+    cursor: pointer;
+    vertical-align: super; /* optional additional alignment */
+  }

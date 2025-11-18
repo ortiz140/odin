@@ -1,0 +1,29 @@
+.custom-navbar {
+    background-color: steelblue;
+    background: linear-gradient(50deg, var(--primary-color) 20%, var(--secondary-color))
+}
+
+/* Make buttons and text white */
+.navbar .nav-link,
+.navbar .btn {
+    color: white !important;
+    border-color: white !important; /* Ensures buttons have a white border */
+}
+
+/* Change to black on hover */
+.navbar .btn:hover {
+    color: black !important;
+    background-color: rgba(0,0,0,0.1) !important; 
+    border-color: black !important;
+}
+
+/* Change to black on hover */
+.navbar .nav-link:hover {
+    color: black !important;
+}
+
+.navbar-toggler:hover {
+    background-color: rgba(0,0,0,0.1); 
+    color: black;
+    border-color: black;
+}
