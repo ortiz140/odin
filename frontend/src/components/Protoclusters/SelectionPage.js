@@ -59,7 +59,7 @@ const SelectionPage = () => {
                 <img
                     style={{ width: "100%", height: "auto", maxHeight: "744.1px", objectFit: "contain", display: "block", }}
                     loading="lazy"
-                    src={`${process.env.PUBLIC_URL}/cosmos_xmm_3d_structures_all.png`}
+                    src={`${process.env.PUBLIC_URL}/cosmos_xmm_3d_structures_final.png`}
                     alt="GXX"
                 />
             </div>
