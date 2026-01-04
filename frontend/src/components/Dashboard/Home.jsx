@@ -35,7 +35,7 @@ const Home = () => {
                             structures are reconstructed from photometric LAEs combined  with spectroscopic redshifts
                             from the Dark Energy Spectroscopic Instrument (DESI), Keck Observatory, and the Gemini Telesopes. 
                             These models are produced using a probabilistic 3D reconstruction method described{" "}
-                            <a href="https://arxiv.org/pdf/2511.11826" target="_blank" rel="noopener noreferrer"
+                            <a href="https://arxiv.org/abs/2511.11826" target="_blank" rel="noopener noreferrer"
                                 style={{color: "var(--secondary-color)", textDecorationColor: "var(--secondary-color)"}}
                             >
                                 here

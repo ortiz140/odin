@@ -9,13 +9,16 @@ const FigureViewer = () => {
     const [searcParams] = useSearchParams();
     const navigate = useNavigate();
 
-    const isLAB = searcParams.get("lab") === "true";
+    const isLAB = searcParams.get("LAB") === "true";
+    const isMQG = searcParams.get("MQG") === "true";
+    const hasMQG = protoclusterName === "XMM-z3.1-A";
+    const tagName = hasMQG ? "MQG" : "LAB"
 
     useEffect(() => {
         if (window.x3dom?.reload) {
             window.x3dom.reload();
         }
-    }, [isLAB]);
+    }, [isLAB, isMQG]);
 
     // Next thing to do is add blobs
     // Make a selection checkbox and then go into vedo and make the new LABs, I will just append or remove "-LAB" to the protoclusterName 
@@ -24,7 +27,7 @@ const FigureViewer = () => {
     const handleToggle = (e) => {
         const checked = e.target.checked;
 
-        const newParam = checked ? "?lab=true" : "";
+        const newParam = checked ? `?${tagName}=true` : "";
 
         navigate(`/protoclusters/${protoclusterName}${newParam}`);
     };
@@ -42,7 +45,7 @@ const FigureViewer = () => {
                             __html: `
                             <x3d width="100%" height="600px">
                                 <scene>
-                                <inline url="${process.env.PUBLIC_URL}/${protoclusterName}${isLAB ? "-LAB" : ""}.x3d"></inline>
+                                <inline url="${process.env.PUBLIC_URL}/${protoclusterName}${isLAB ? "-LAB" : isMQG ? "-MQG" : ""}.x3d"></inline>
                                 </scene>
                             </x3d>
                             `,
@@ -52,9 +55,9 @@ const FigureViewer = () => {
                     <div className="d-flex justify-content-center mt-2 mb-1">
                         <div className="form-check" style={{ marginBottom: "0px"}}>
                             <input className="form-check-input" type="checkbox" id="labCheckbox" 
-                                   checked={isLAB} onChange={handleToggle} style={{ marginRight: "6px"}}/>
+                                   checked={isLAB | isMQG} onChange={handleToggle} style={{ marginRight: "6px"}}/>
                             <label className="form-check-label" htmlFor="labCheckbox">
-                                Show LAB
+                                Show {tagName}
                             </label>
                         </div>
                     </div>

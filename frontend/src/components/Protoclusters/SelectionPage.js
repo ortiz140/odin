@@ -21,15 +21,19 @@ const SelectionPage = () => {
 
     // Using object literal notation
     let dictionary = {};
-    //dictionary["COSMOS/N419"] = [];
-    dictionary["COSMOS/N501"] = ["COSMOS-z3.1-A", "COSMOS-z3.1-C"];
-    //dictionary["XMM-LSS/N419"] = [];
-    //dictionary["XMM-LSS/N501"] = [];
+    dictionary["COSMOS/N419"] = ["COSMOS-z2.4-A", "COSMOS-z2.4-B"];
+    dictionary["COSMOS/N501"] = ["COSMOS-z3.1-A", "COSMOS-z3.1-B", "COSMOS-z3.1-C"];
+    dictionary["XMM-LSS/N419"] = ["XMM-z2.4-A", "XMM-z2.4-B"];
+    dictionary["XMM-LSS/N501"] = ["XMM-z3.1-A"]; // Only protocluster with MQG instead of LAB
     console.log(dictionary);
 
     const [field, setField] = useState("");
     const [structure, setStructure] = useState("");
+    const [tagName, setTagName] = useState("LAB")
     // how to make a dict thing with values
+
+    // const hasMQG = protoclusterName === "XMM-z3.1-A";
+    //const tagName = hasMQG ? "mqg" : "lab"
 
     // Need to have 
     const handleFieldChange = (event) => {
@@ -38,28 +42,30 @@ const SelectionPage = () => {
 
     const handleStructureChange = (event) => {
         setStructure(event.target.value);
+        const hasMQG = event.target.value === "XMM-z3.1-A";
+        setTagName(hasMQG ? "MQG" : "LAB")
     };
 
     const handleSubmit = async (e) => {
-        navigate(`/protoclusters/${structure}`);
+        navigate(`/protoclusters/${structure}?${tagName}=true`);
         return;
     }
 
     return (
         <>
             <Navbar/>
-            <div className="mt-4" style={{ position: "relative", width: "100%", height: "100%" }}>
-            <img
-                width="933.66"
-                height="744.1"
-                loading="lazy"
-                sizes="auto, (max-width: 30em) 100vw, (max-width: 50em) 50vw, calc(33vw - 100px)"
-                src={`${process.env.PUBLIC_URL}/cosmos_xmm_3d_structures_all.png`}
-                alt="GXX" />
+            <div className="mt-4"
+                style={{ position: "relative", width: "100%", maxWidth: "933.66px", marginLeft: "auto", marginRight: "auto", }}>
+                <img
+                    style={{ width: "100%", height: "auto", maxHeight: "744.1px", objectFit: "contain", display: "block", }}
+                    loading="lazy"
+                    src={`${process.env.PUBLIC_URL}/cosmos_xmm_3d_structures_all.png`}
+                    alt="GXX"
+                />
             </div>
             <div className="mt-1">
                 <p>Protocluster candidates in the COSMOS and XMM-LSS fields.<br/>
-                <span style={{ color: 'orange'}}>Orange:</span> structures from Ramakrishnan et al. (<a
+                <span style={{ color: 'blue'}}>Blue:</span> structures from Ramakrishnan et al. (<a
                         href="https://arxiv.org/abs/2511.11826"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -71,8 +77,7 @@ const SelectionPage = () => {
                     >
                         2025b
                     </a>).<br/>
-                <span style={{ color: 'red'}}>Red:</span> structures from Ortiz et al. (in prep).
-                <span style={{ color: 'red'}}> *To be added</span></p>
+                <span style={{ color: 'red'}}>Red:</span> structures from Ortiz et al. (in prep).</p>
             </div>
             <div className="mt-6">
                 <h4>Select a protocluster to view:</h4>
