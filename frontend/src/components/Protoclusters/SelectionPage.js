@@ -75,9 +75,20 @@ const SelectionPage = () => {
                         fontWeight: 500
                         }}
                     >
-                        2025b
+                        2025
                     </a>).<br/>
-                <span style={{ color: 'red'}}>Red:</span> structures from Ortiz et al. (in prep).</p>
+                <span style={{ color: 'red'}}>Red:</span> structures from Ortiz et al. (<a
+                        href="https://arxiv.org/abs/2603.09739"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        style={{ 
+                        color: "var(--primary-color)",
+                        textDecoration: "none",
+                        fontWeight: 500
+                        }}
+                    >
+                        2026
+                    </a>).</p>
             </div>
             <div className="mt-6">
                 <h4>Select a protocluster to view:</h4>
